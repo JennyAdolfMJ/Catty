@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://buagvtwnihvqt"]
+
+[ext_resource type="Script" uid="uid://21tjpdqxbhhc" path="res://node_2d.gd" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://cjl1essej8xvx" path="res://addons/dialogic/Modules/Background/dialogic_background.gd" id="2_0e48y"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wtcfe")
+
+[node name="DialogicBackground" type="Node" parent="."]
+script = ExtResource("2_0e48y")
+metadata/_custom_type_script = "uid://cjl1essej8xvx"
