@@ -1,11 +1,80 @@
-[gd_scene load_steps=3 format=3 uid="uid://buagvtwnihvqt"]
+[gd_scene load_steps=6 format=3 uid="uid://buagvtwnihvqt"]
 
-[ext_resource type="Script" uid="uid://21tjpdqxbhhc" path="res://node_2d.gd" id="1_wtcfe"]
-[ext_resource type="Script" uid="uid://cjl1essej8xvx" path="res://addons/dialogic/Modules/Background/dialogic_background.gd" id="2_0e48y"]
+[ext_resource type="Script" uid="uid://dl7skieo6tc8" path="res://MainScene.gd" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://b21iqnuo0sr1s" path="res://main_menu.gd" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://dyrgcjfv6cjdm" path="res://canvas_layer.gd" id="2_0hol4"]
+[ext_resource type="Script" uid="uid://bfkp2e7nltv8h" path="res://in_game_menu.gd" id="2_epypp"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0hol4"]
+
+[node name="MainScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0e48y")
+
+[node name="Game" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+script = ExtResource("2_0hol4")
+
+[node name="MainMenu" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
 script = ExtResource("1_wtcfe")
 
-[node name="DialogicBackground" type="Node" parent="."]
-script = ExtResource("2_0e48y")
-metadata/_custom_type_script = "uid://cjl1essej8xvx"
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/MainMenu"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.352941, 0.423529, 1, 1)
+
+[node name="Btn_NewGame" type="Button" parent="CanvasLayer/MainMenu"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 191.0
+offset_right = 260.0
+offset_bottom = 222.0
+text = "New Game"
+
+[node name="InGameMenu" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_epypp")
+
+[node name="Btn_Storyline" type="Button" parent="CanvasLayer/InGameMenu"]
+layout_mode = 0
+offset_left = 1046.0
+offset_top = 30.0
+offset_right = 1123.0
+offset_bottom = 61.0
+text = "Storyline"
+
+[node name="StorylineMenu" type="Control" parent="CanvasLayer"]
+visible = false
+material = SubResource("CanvasItemMaterial_0hol4")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/StorylineMenu"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0.952142, 0.953276, 1)
+
+[connection signal="pressed" from="CanvasLayer/MainMenu/Btn_NewGame" to="CanvasLayer/MainMenu" method="_on_btn_new_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/InGameMenu/Btn_Storyline" to="CanvasLayer/InGameMenu" method="_on_btn_storyline_pressed"]

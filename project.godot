@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Catty"
-run/main_scene="uid://cayeevkj32ljq"
+run/main_scene="uid://buagvtwnihvqt"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -32,7 +32,11 @@ directories/dtl_directory={
 glossary/default_case_sensitive=true
 layout/style_list=[]
 layout/default_style="Default"
-variables={}
+variables={
+"Folder": {
+"Var": ""
+}
+}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -53,6 +57,7 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+glossary/glossary_files=["res://New_File.tres"]
 
 [editor_plugins]
 
