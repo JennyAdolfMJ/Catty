@@ -22,12 +22,12 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"Fish": "res://Fish.dch",
-"Jenny": "res://Jenny.dch"
+"Dialogic/Fish": "res://Dialogic/Fish.dch",
+"Dialogic/Jenny": "res://Dialogic/Jenny.dch"
 }
 directories/dtl_directory={
-"chapter1": "res://chapter1.dtl",
-"chapter2": "res://chapter2.dtl"
+"Dialogic/chapter1": "res://Dialogic/chapter1.dtl",
+"Dialogic/chapter2": "res://Dialogic/chapter2.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=[]

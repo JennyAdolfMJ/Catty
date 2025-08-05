@@ -1,0 +1,19 @@
+join Dialogic/Jenny left
+Dialogic/Jenny: Hello
+join Dialogic/Fish right [animation="Fade In"]
+- 好好说话
+	Dialogic/Fish: Hello, my love.
+	jump chapter1/没生气
+- 不好好说话
+	Dialogic/Fish: Hello, my stupid.
+	jump chapter1/生气
+label 生气
+leave Dialogic/Jenny [animation="Slide Out Right"]
+Dialogic/Jenny: 我生气了
+leave Dialogic/Fish [animation="Slide Out Right"]
+Dialogic/Fish: 别走，my love
+[end_timeline]
+label 没生气
+Dialogic/Jenny: 亲亲
+Dialogic/Fish: 亲亲
+[end_timeline]
