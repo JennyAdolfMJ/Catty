@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://buagvtwnihvqt"]
+[gd_scene load_steps=8 format=3 uid="uid://buagvtwnihvqt"]
 
 [ext_resource type="Script" uid="uid://dl7skieo6tc8" path="res://MainScene.gd" id="1_0e48y"]
 [ext_resource type="Script" uid="uid://b21iqnuo0sr1s" path="res://main_menu.gd" id="1_wtcfe"]
 [ext_resource type="Script" uid="uid://dyrgcjfv6cjdm" path="res://canvas_layer.gd" id="2_0hol4"]
 [ext_resource type="Script" uid="uid://bfkp2e7nltv8h" path="res://in_game_menu.gd" id="2_epypp"]
+[ext_resource type="Script" uid="uid://d0kydtelsckta" path="res://storyline_menu.gd" id="5_q6r6c"]
+[ext_resource type="Script" uid="uid://cxxwjspg1evdt" path="res://DialogicLabelFlowchart.gd" id="6_kdubu"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0hol4"]
 
@@ -69,12 +71,19 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+script = ExtResource("5_q6r6c")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/StorylineMenu"]
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0.952142, 0.953276, 1)
+
+[node name="DialogicLabelFlowchart" type="Control" parent="CanvasLayer/StorylineMenu"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_kdubu")
 
 [connection signal="pressed" from="CanvasLayer/MainMenu/Btn_NewGame" to="CanvasLayer/MainMenu" method="_on_btn_new_game_pressed"]
 [connection signal="pressed" from="CanvasLayer/InGameMenu/Btn_Storyline" to="CanvasLayer/InGameMenu" method="_on_btn_storyline_pressed"]

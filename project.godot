@@ -57,7 +57,7 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
-glossary/glossary_files=["res://New_File.tres"]
+glossary/glossary_files=[]
 
 [editor_plugins]
 

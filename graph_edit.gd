@@ -26,36 +26,3 @@ func draw_label_graph(connections: Dictionary):
 			var to_node = get_node(to_label)
 			if to_node:
 				connect_node(from_node.name, 0, to_node.name, 0)
-
-
-func get_label_connections(timeline_path: String) -> Dictionary:
-	var connections = {}
-	var timeline = load(timeline_path)
-	
-	if not timeline:
-		push_error("时间线加载失败: ", timeline_path)
-		return {}
-	
-	# 第一遍：收集所有 label
-	var labels = []
-	for event in timeline.events:
-		if event.get("_event_name") == "Label":
-			labels.append(event.get("name"))
-	
-	# 第二遍：分析跳转关系
-	for label in labels:
-		connections[label] = []
-	
-	var current_label = ""
-	for event in timeline.events:
-		if event.get("_event_name") == "Label":
-			current_label = event.get("name")
-		elif event.get("_event_name") == "Text" and event.get("options"):
-			for option in event.get("options"):
-				if option.get("jump"):
-					connections[current_label].append(option.get("jump"))
-		elif event.get("_event_name") == "Jump":
-			if event.get("target"):
-				connections[current_label].append(event.get("target"))
-	
-	return connections
