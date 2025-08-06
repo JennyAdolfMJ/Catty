@@ -23,7 +23,6 @@ func parse_timeline(timeline_path: String) -> void:
 	
 	var events = timeline.events
 	var current_label: String = ""
-	var has_label: bool = false
 	
 	# 第一遍：收集所有Label
 	for i in range(events.size()):
@@ -35,7 +34,6 @@ func parse_timeline(timeline_path: String) -> void:
 			nodes[node_id].id = node_id
 			nodes[node_id].label_name = label_name
 			current_label = node_id
-			has_label = true
 			
 		if i == 0 && nodes.size() == 0:
 			var node_id = "label_start"

@@ -24,6 +24,51 @@ func _parse_and_draw() -> void:
 	parser.parse_timeline(timeline_path)
 	connections = parser.get_connections()
 	queue_redraw()
+	
+func draw_label(pos: Vector2, text: String):
+	var to_pos = pos
+	
+	# 圆角矩形样式
+	var style_box = StyleBoxFlat.new()
+	style_box.bg_color = Color(0, 0, 0, 0.7)
+	# style_box.border_color = Color.RED
+	style_box.set_border_width_all(2)
+	style_box.set_corner_radius_all(10)
+	style_box.set_content_margin_all(10)
+	
+	# 矩形大小和位置
+	var rect_size = Vector2(100, 60)
+	var rect_position = to_pos - rect_size / 2
+	var rect = Rect2(rect_position, rect_size)
+	
+	# 绘制圆角矩形
+	draw_style_box(style_box, rect)
+	
+	# 标签设置
+	var label_text = "END"
+	var font = get_theme_default_font()
+	var text_size = font.get_string_size(label_text)
+	
+	# 标签背景
+	var label_bg_rect = Rect2(
+		rect_position + Vector2(5, rect_size.y - 25),
+		Vector2(text_size.x + 10, 20))
+	
+	var label_style = StyleBoxFlat.new()
+	label_style.bg_color = Color(0, 0, 0, 0.7)
+	label_style.corner_radius_bottom_left = 5
+	draw_style_box(label_style, label_bg_rect)
+	
+	# 标签文字
+	draw_string(
+		font,
+		rect_position + Vector2(10, rect_size.y - 10),
+		text,
+		HORIZONTAL_ALIGNMENT_LEFT,
+		-1,
+		16,
+		Color.WHITE
+	)
 
 func _draw() -> void:
 	if not parser:
@@ -102,21 +147,10 @@ func _draw() -> void:
 			color = color.lightened(0.3)
 			draw_circle(pos, radius + 5, Color.WHITE)
 		
-		draw_circle(pos, radius, color)
-		
 		# 绘制节点文本
 		var text = node.label_name if node.label_name else "Start" if node.is_start else "Node"
-		var font = get_theme_default_font()
-		var text_size = font.get_string_size(text)
-		draw_string(
-			font,
-			pos - text_size / 2,
-			text,
-			HORIZONTAL_ALIGNMENT_CENTER,
-			-1,
-			16,
-			Color.BLACK
-		)
+		
+		draw_label(pos, text)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
