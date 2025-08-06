@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://buagvtwnihvqt"]
+[gd_scene load_steps=7 format=3 uid="uid://buagvtwnihvqt"]
 
-[ext_resource type="Script" uid="uid://dl7skieo6tc8" path="res://MainScene.gd" id="1_0e48y"]
 [ext_resource type="Script" uid="uid://b21iqnuo0sr1s" path="res://main_menu.gd" id="1_wtcfe"]
 [ext_resource type="Script" uid="uid://dyrgcjfv6cjdm" path="res://canvas_layer.gd" id="2_0hol4"]
 [ext_resource type="Script" uid="uid://bfkp2e7nltv8h" path="res://in_game_menu.gd" id="2_epypp"]
@@ -16,7 +15,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_0e48y")
 
 [node name="Game" type="Control" parent="."]
 anchors_preset = 0
